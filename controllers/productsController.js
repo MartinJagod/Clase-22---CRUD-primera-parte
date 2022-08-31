@@ -1,33 +1,45 @@
-const productsController = {
-index:(req, res)=>{
-    res.send("Listar todos los productos");
-},
+const fs = require('fs');
+const path = require('path');
 
-detail: (req, res) =>{
-    const idProduct = req.params.id;
-    res.send("Detalle del producto " + idProduct)
-},
-create: (req, res)=>{
-    res.send("Formulario de creación");
-},
-store: (req, res)=>{
-    res.send("Guardado de producto");
-},
-edit: (req, res)=>{
-    const idProduct = req.params.id;
-    res.send("Modificar producto " + idProduct);
-},
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-update: (req, res)=>{
-    res.send("Guardado el producto modificado");
-},
-destroy: (req, res)=>{
-    const idProduct = req.params.id;
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    res.send("Borrado del producto" + idProduct);
-},
+const controller = {
+	// Root - Show all products
+	index: (req, res) => {
+		// Do the magic
+	},
 
+	// Detail - Detail from one product
+	detail: (req, res) => {
+		// Do the magic
+	},
 
-}
+	// Create - Form to create
+	create: (req, res) => {
+		// Do the magic
+	},
+	
+	// Create -  Method to store
+	store: (req, res) => {
+		// Do the magic
+	},
 
-module.exports = productsController;
+	// Update - Form to edit
+	edit: (req, res) => {
+		// Do the magic
+	},
+	// Update - Method to update
+	update: (req, res) => {
+		// Do the magic
+	},
+
+	// Delete - Delete one product from DB
+	destroy : (req, res) => {
+		// Do the magic
+	}
+};
+
+module.exports = controller;

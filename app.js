@@ -18,6 +18,10 @@ app.use(methodOverride('_method'));
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 
+app.use((req, res)=>{
+    res.status(404).render('not-found');
+})
+
 app.listen(3000, ()=>{console.log("Servidor corriendo en puerto 3000")});
 
 
