@@ -160,5 +160,41 @@
   "category": "visited",
   "description": "Otra descripción",
   "image": "default-image.png"
+ },
+ {
+  "id": 19,
+  "name": "Sueñolar",
+  "price": "12456",
+  "discount": "10",
+  "category": "in-sale",
+  "description": "Una descripción",
+  "image": "img-1661990731051.png"
+ },
+ {
+  "id": 20,
+  "name": "Otro Producto",
+  "price": "36999",
+  "discount": "5",
+  "category": "in-sale",
+  "description": "Herramientas Daewoo",
+  "image": "img-1661990785035.png"
+ },
+ {
+  "id": 21,
+  "name": "otro",
+  "price": "777777",
+  "discount": "10",
+  "category": "in-sale",
+  "description": "Sin foto",
+  "image": "default-image.png"
+ },
+ {
+  "id": 22,
+  "name": "Va con foto",
+  "price": "8888888",
+  "discount": "5",
+  "category": "in-sale",
+  "description": "Con foto",
+  "image": "img-1661991601093.png"
  }
 ]

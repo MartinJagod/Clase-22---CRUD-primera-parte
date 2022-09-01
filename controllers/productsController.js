@@ -9,22 +9,42 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		// Do the magic
+		res.render('products', {
+			products, toThousand
+		})
 	},
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
+		let id = req.params.id;
+		let product = products.find(oneProduct => oneProduct.id == id );
+		res.render('detail', {
+			product, toThousand
+		})
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
-		// Do the magic
+		res.render('product-create-form')
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		console.log(req.file);
+		console.log(req.body);
 		// Do the magic
+		let newProduct={
+			id: products[products.length - 1].id + 1,
+			name: req.body.name,
+			price: req.body.price,
+			discount: req.body.discount,
+			category: req.body.category,
+			description: req.body.description,
+			image:req.file? req.file.filename : "default-image.png"
+		};
+		products.push(newProduct);
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
+		res.redirect('/products/');
 	},
 
 	// Update - Form to edit
