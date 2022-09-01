@@ -49,11 +49,15 @@ const controller = {
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		// Do the magic
+		let id = req.params.id;
+		let product = products.find(oneProduct => oneProduct.id == id );
+		res.render('product-edit-form', {
+			product, toThousand
+		})
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		res.json(req.body)
 	},
 
 	// Delete - Delete one product from DB
