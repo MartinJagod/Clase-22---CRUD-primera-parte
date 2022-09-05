@@ -2,8 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
@@ -57,12 +56,35 @@ const controller = {
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		res.json(req.body)
+		let id = req.params.id
+		let producToEdit = products.find(product => product.id == id)
+
+		producToEdit ={
+			id: producToEdit.id,
+			...req.body,
+			image: producToEdit.image
+		};
+
+		let newProducts = products.map(product=>{
+			if (product.id == producToEdit.id){
+				return product = {...producToEdit}
+			}
+			return product;
+		})
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+		products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		res.redirect('/products/');
+
+
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
+	let id = req.params.id
+	let finalProducts = products.filter(product=> product.id != id);
+	fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
+	res.redirect('/');
 	}
 };
 

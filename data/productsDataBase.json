@@ -2,27 +2,27 @@
  {
   "id": 1,
   "name": "Cafetera Moulinex Dolce Gusto Edited",
-  "price": 100,
-  "discount": 50,
-  "category": "visited",
+  "price": "3500",
+  "discount": "10",
+  "category": "",
   "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
   "image": "img-cafetera-moulinex.jpg"
  },
  {
   "id": 2,
   "name": "Macbook Pro 2022",
-  "price": 500,
-  "discount": 3,
-  "category": "in-sale",
+  "price": "627000",
+  "discount": "3",
+  "category": "",
   "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
   "image": "img-macbook-pro-2019.jpg"
  },
  {
   "id": 3,
   "name": "Samsung Galaxy S10",
-  "price": 72999,
-  "discount": 25,
-  "category": "in-sale",
+  "price": "122998",
+  "discount": "0",
+  "category": "",
   "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
   "image": "img-samsung-galaxy-s10.jpg"
  },
@@ -169,32 +169,5 @@
   "category": "in-sale",
   "description": "Una descripción",
   "image": "img-1661990731051.png"
- },
- {
-  "id": 20,
-  "name": "Otro Producto",
-  "price": "36999",
-  "discount": "5",
-  "category": "in-sale",
-  "description": "Herramientas Daewoo",
-  "image": "img-1661990785035.png"
- },
- {
-  "id": 21,
-  "name": "otro",
-  "price": "777777",
-  "discount": "10",
-  "category": "in-sale",
-  "description": "Sin foto",
-  "image": "default-image.png"
- },
- {
-  "id": 22,
-  "name": "Va con foto",
-  "price": "8888888",
-  "discount": "5",
-  "category": "in-sale",
-  "description": "Con foto",
-  "image": "img-1661991601093.png"
  }
 ]
