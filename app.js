@@ -15,6 +15,11 @@ app.set("view engine", "ejs");
 
 app.use(methodOverride('_method'));
 
+app.use((req, res, next)=> {
+    console.log("Pasaste por el middleware de aplicación");
+    next();
+})
+
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 

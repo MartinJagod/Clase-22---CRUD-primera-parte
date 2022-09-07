@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { validationResult } = require('express-validator');
+
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -29,23 +31,29 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		console.log(req.file);
-		console.log(req.body);
-		// Do the magic
-		let newProduct={
-			id: products[products.length - 1].id + 1,
-			name: req.body.name,
-			price: req.body.price,
-			discount: req.body.discount,
-			category: req.body.category,
-			description: req.body.description,
-			image:req.file? req.file.filename : "default-image.png"
+
+		let errors = validationResult(req);
+		//console.log(errors.mapped());
+		if(!errors.isEmpty()){
+			let oldData = req.body;
+			return res.render('product-create-form', {errors: errors.mapped(), oldData})
+		} else {
+
+			let newProduct={
+				id: products[products.length - 1].id + 1,
+				name: req.body.name,
+				price: req.body.price,
+				discount: req.body.discount,
+				category: req.body.category,
+				description: req.body.description,
+				image:req.file? req.file.filename : "default-image.png"
 		};
 		products.push(newProduct);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 		res.redirect('/products/');
+	}
 	},
-
+	
 	// Update - Form to edit
 	edit: (req, res) => {
 		let id = req.params.id;

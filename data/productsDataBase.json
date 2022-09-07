@@ -169,5 +169,14 @@
   "category": "in-sale",
   "description": "Una descripción",
   "image": "img-1661990731051.png"
+ },
+ {
+  "id": 20,
+  "name": "Sierra de banco",
+  "price": "19877",
+  "discount": "5",
+  "category": "",
+  "description": "\t\tSierra de banco\t\t\t\t",
+  "image": "img-1662595023499.png"
  }
 ]
