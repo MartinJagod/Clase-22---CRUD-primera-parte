@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 
 const mainRouter = require ("./routes/mainRouter");
 const productsRouter = require ("./routes/productsRouter");
+const usersRouter = require ("./routes/usersRouter");
+
 app.use(express.static(path.resolve(__dirname, './public')));
 
 app.use(express.urlencoded({ extended: false}));
@@ -22,6 +24,8 @@ app.use((req, res, next)=> {
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
+app.use('/users', usersRouter);
+
 
 app.use((req, res)=>{
     res.status(404).render('not-found');

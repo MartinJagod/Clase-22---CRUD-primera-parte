@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+	
+
+
+<body>
+
+    <main class="register">
+        <form action="/users/" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Nombre y apellido">
+            <input type="email" name="email" placeholder="E-mail">
+            <br>
+                      
+            <h4>Elegí tu foto de usuario</h4>
+            <input type="file" name="avatar">
+            <br>
+            <br>
+            <input type="password" name="pass" placeholder="Elegí tu contraseña">
+            <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña">
+            <br>
+            <br>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Borrar">
+            <br>
+            <br>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
