@@ -9,9 +9,12 @@
 
 	
         <main class="login">
-            <form action="/" method="POST">
-                <input class='sobre' type="text" name="user" placeholder="Nombre de usuario">
-                <input type="password" name="pass" placeholder="Elegí tu contraseña">
+            <form action="/users/login" method="POST">
+                <input class='sobre' type="email" name="email" placeholder="Email de usuario">
+                <input type="password" name="password" placeholder="Elegí tu contraseña">
+                <input type="checkbox" name="recordame">
+                <label for="recordame">Recordame</label>
+                <br>
                 <input type="submit" value="Enviar">
             </form>
         </main>

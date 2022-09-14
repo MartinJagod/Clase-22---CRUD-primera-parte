@@ -1,3 +1,14 @@
 [
-
+ {
+  "name": "martin jagodnik",
+  "email": "jagodnikmartin@gmail.com",
+  "password": "$2a$10$ExVqN029WdtdUjMcEsKOdOKCNerH5sbVjRhWQ6Y9lgyBbHXomeyJa",
+  "image": "avatar-1663027388559.png"
+ },
+ {
+  "name": "Martin",
+  "email": "ljagod@gmail.com",
+  "password": "$2a$10$Nm5yfAr/q2RNhWTqTaqFsuNUtk61eOFIWdACa51v6azCJRQCwJ9HC",
+  "image": "avatar-1663028821791.png"
+ }
 ]

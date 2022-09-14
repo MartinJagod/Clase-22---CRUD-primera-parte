@@ -4,6 +4,8 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const { check } = require("express-validator");
+const guestMiddleware = require("../middlewares/guestMiddleware");
+const authMiddleware = require("../middlewares/authMiddleware");
 
 
 var multerStorage = multer.diskStorage({
@@ -21,29 +23,28 @@ var upload = multer({storage: multerStorage})
 const usersController = require('../controllers/usersController');
 const middlewareRutas = require ("../middlewares/ejemploRutas")
 
-//Se deberán listar todos los productos presentes en la base de datos JSON 
-//http://localhost:3000/products
-router.get('/', middlewareRutas, usersController.index);
-
-//Detalle de producto.
-//http://localhost:3000/products/detail/3
-router.get('/detail/:id', usersController.detail)
 
 //Mostrará el formulario de creación para un producto
-router.get('/register', usersController.register);
+router.get('/register', guestMiddleware, usersController.register);
+
 //Deberá recibir los datos del formulario de creación
-router.post('/', upload.single("avatar"), [
+router.post('/register', upload.single("avatar"), [
     check('name').isLength({min:1}).withMessage('Debe ingresar un nombre'),
     check('email').isEmail().withMessage('Debe un email valido'),
     check('password').isLength({min:3}).withMessage('Debe ingresar clave de mas de 3 caracteres'),
-    check('pass_confirm').isLength({min:3}).withMessage('Debe ingresar clave de mas de 3 caracteres'),
 
 ]  , usersController.store);
-router.get('/login', usersController.login);
+
+router.get('/login', guestMiddleware, usersController.login);
+
+router.post('/login', usersController.loginProcess);
+
+router.get('/logout', usersController.logout);
 
 //Botón MODIFICAR: modificará al producto
-router.get('/edit/:id', usersController.edit);
+router.get('/profile', authMiddleware, usersController.profile);
 //Deberá recibir los datos del formulario de edición
+
 router.put('/:id', usersController.update);
 
 //Botón BORRAR: eliminará al producto

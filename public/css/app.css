@@ -13,6 +13,10 @@
   --base-font-family: 'Roboto', sans-serif
 }
 
+.photo-avatar {
+  width: 30px;
+
+}
 
 /*====== Basics ======*/
 * {
