@@ -77,6 +77,8 @@ const controller = {
 
 	logout:(req, res)=>{
 		req.session.userLogged = undefined;
+		users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
 		res.redirect("/");
 	},
 
